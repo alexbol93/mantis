@@ -2,7 +2,7 @@ from model.project import Project
 import random
 
 
-def test_delete_some_group(app):
+def test_delete_some_project(app):
     if app.project.count() == 0:
         app.project.create(Project(name="test_project", description="test_description"))
     old_projects = app.project.get_project_list()
