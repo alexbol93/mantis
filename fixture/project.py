@@ -55,3 +55,15 @@ class ProjectHelper:
         self.open_project_page()
         project_counter = len(wd.find_elements_by_xpath("//a[contains(@href, 'manage_proj_edit')]"))
         return project_counter
+
+    def delete_project(self, project_name):
+        wd = self.app.wd
+        self.open_project_page()
+        self.open_project_edit_page(project_name)
+        wd.find_element_by_css_selector("[value='Delete Project']").click()
+        wd.find_element_by_css_selector("[value='Delete Project']").click()
+
+    def open_project_edit_page(self, project_name):
+        wd = self.app.wd
+        wd.find_element_by_link_text(project_name).click()
+
